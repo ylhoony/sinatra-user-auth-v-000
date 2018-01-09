@@ -17,9 +17,13 @@ class ApplicationController < Sinatra::Base
 
   post '/registrations' do
     # binding.pry
-    user = User.create(params)
-    session[:id] = user.id
-    redirect '/users/home'
+    if User.find_by(params[:email])
+      "Your email account exists, please log in."
+    else
+      user = User.create(params)
+      session[:id] = user.id
+      redirect '/users/home'
+    end
   end
 
   get '/sessions/login' do
