@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
   post '/registrations' do
     # binding.pry
     if User.find_by(email: params[:email], password: params[:password])
-      "Your email account exists, please log in."
+      # erb ''
     else
       user = User.create(params)
       session[:id] = user.id
