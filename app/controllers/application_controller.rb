@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
 
   post '/sessions' do
     # binding.pry
-    if user = User.find_by(params)
+    if @user = User.find_by(params)
       session[:id] = user.id
       @session = session
       binding.pry
