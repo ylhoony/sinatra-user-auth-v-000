@@ -17,6 +17,7 @@ class ApplicationController < Sinatra::Base
 
   post '/registrations' do
     # binding.pry
+    puts params
     if User.find_by(email: params[:email], password: params[:password])
       # erb ''
     else
