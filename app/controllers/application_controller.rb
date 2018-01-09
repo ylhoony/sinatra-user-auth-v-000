@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sessions' do
-    binding.pry
+    # binding.pry
     if user = User.find_by(params)
       session[:id] = user.id
       @session = session
@@ -39,6 +39,7 @@ class ApplicationController < Sinatra::Base
     else
       redirect 'sessions/login'
     end
+    binding.pry
   end
 
   get '/sessions/logout' do
